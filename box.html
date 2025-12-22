@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!-- 第零步：完整<head>结构 -->
+<head>
+    <!-- 1. 网页编码（必须有，防止中文乱码） -->
+    <meta charset="UTF-8">
+    <!-- 2. 移动端适配（防止页面在手机上变形，可选但推荐） -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 3. 网页标题（浏览器标签上显示的文字，可自定义） -->
+    <title>宝箱</title>
+    <!-- 4. 样式标签（后续的背景、宝箱、动画样式都写在这里面） -->
+    <style>
+        body {
+            background: #5198e9;
+            margin: 0; /* 清除默认边距，避免布局错乱 */
+        }
+        .box-base {
+            width: 200px; /* 方块宽度，可自定义 */
+            height: 120px; /* 方块高度，可自定义 */
+            background-color: #D4AF37; /* 黄金色，可换其他颜色 */
+            border: 4px solid #B8860B; /* 深金边框，增加质感 */
+            border-radius: 0; /* 方角，想要圆角可改8px */
+            box-sizing: border-box; /* 边框不占额外宽度，保证方块尺寸准确 */
+            margin-left: 45%;
+            margin-top: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* 作为子元素定位参考，避免锁错位 */
+        }
+        .box-gaizi {
+            width: 200px; /* 方块宽度，可自定义 */
+            height: 70px; /* 方块高度，可自定义 */
+            background-color: #a78a2b; /* 黄金色，可换其他颜色 */
+            border: 4px solid #836008; /* 深金边框，增加质感 */
+            border-radius: 0; /* 方角，想要圆角可改8px */
+            box-sizing: border-box; /* 边框不占额外宽度，保证方块尺寸准确 */
+            margin-left: 45%;
+            margin-top: -9.86%;
+            transition: all 1s ease;
+        }
+        .box-text {
+            font-size: 18px; /* 文字大小 */
+            color: #fcff2e; /* 深棕色，和黄金宝箱搭配 */
+            font-weight: bold; /* 文字加粗 */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* 轻微阴影，更醒目 */
+            margin-top: 500px;
+        }
+        .box-lock {
+            width: 50px;
+            height: 80px;
+            background-color: #ffffff;
+            border: 4px solid #000000;
+            border-radius: 0;
+            box-sizing: border-box;
+            margin-left: 49%;
+            margin-top: -2.5%;
+            transition: all 1s ease;
+            opacity: 1;
+            z-index: 100000000000000000000000000000;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="reward" style="text-align: center; margin-top: 75px; font-size: 22px; font-weight: bold; color: #ffd700; text-shadow: 0 0 10px #ffd700; display: none;">恭喜你!获得一团空气!</div>
+    <div class="box-base">
+        <span class="box-text">你找到了一个宝箱!!!</span> 
+    </div>
+    <div class="box-gaizi"></div>
+    <div class="box-lock"></div>
+    <script>
+        window.onload = function() {
+        const lock = document.querySelector('.box-lock');
+        const gaizi = document.querySelector('.box-gaizi');
+        const reward = document.querySelector('.reward');
+        let isLockClicked = false;
+
+        lock.onclick = function() {
+        if (isLockClicked) return;
+        
+            this.style.opacity = 0;
+            this.style.transform = "translateY(50px)";
+            isLockClicked = true;
+        };
+
+        gaizi.onclick = function() {
+            if (!isLockClicked) {
+                console.log("宝箱好像被上锁了");
+                return;
+            }
+            if (this.style.transform) return;
+                this.style.opacity = 0;
+                this.style.transform = "translateY(-50px)";
+                setTimeout(() => {
+                    reward.style.display = "block";
+                    reward.style.transition = "all 0.5s ease";
+                    reward.style.transform = "scale(1.2)";
+                }, 800);
+
+    };
+};
+    </script>
+</body>
+</html>
