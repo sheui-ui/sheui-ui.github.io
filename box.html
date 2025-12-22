@@ -1,49 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-<!-- 第零步：完整<head>结构 -->
 <head>
-    <!-- 1. 网页编码（必须有，防止中文乱码） -->
     <meta charset="UTF-8">
-    <!-- 2. 移动端适配（防止页面在手机上变形，可选但推荐） -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 3. 网页标题（浏览器标签上显示的文字，可自定义） -->
     <title>宝箱</title>
-    <!-- 4. 样式标签（后续的背景、宝箱、动画样式都写在这里面） -->
     <style>
         body {
             background: #5198e9;
-            margin: 0; /* 清除默认边距，避免布局错乱 */
+            margin: 0;
         }
         .box-base {
-            width: 200px; /* 方块宽度，可自定义 */
-            height: 120px; /* 方块高度，可自定义 */
-            background-color: #D4AF37; /* 黄金色，可换其他颜色 */
-            border: 4px solid #B8860B; /* 深金边框，增加质感 */
-            border-radius: 0; /* 方角，想要圆角可改8px */
-            box-sizing: border-box; /* 边框不占额外宽度，保证方块尺寸准确 */
+            width: 200px;
+            height: 120px;
+            background-color: #D4AF37;
+            border: 4px solid #B8860B;
+            border-radius: 0;
+            box-sizing: border-box;
             margin-left: 45%;
             margin-top: 20%;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative; /* 作为子元素定位参考，避免锁错位 */
+            position: relative;
         }
         .box-gaizi {
-            width: 200px; /* 方块宽度，可自定义 */
-            height: 70px; /* 方块高度，可自定义 */
-            background-color: #a78a2b; /* 黄金色，可换其他颜色 */
-            border: 4px solid #836008; /* 深金边框，增加质感 */
-            border-radius: 0; /* 方角，想要圆角可改8px */
-            box-sizing: border-box; /* 边框不占额外宽度，保证方块尺寸准确 */
+            width: 200px;
+            height: 70px;
+            background-color: #a78a2b;
+            border: 4px solid #836008;
+            border-radius: 0;
+            box-sizing: border-box;
             margin-left: 45%;
             margin-top: -9.86%;
             transition: all 1s ease;
         }
         .box-text {
-            font-size: 18px; /* 文字大小 */
-            color: #fcff2e; /* 深棕色，和黄金宝箱搭配 */
-            font-weight: bold; /* 文字加粗 */
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2); /* 轻微阴影，更醒目 */
+            font-size: 18px;
+            color: #fcff2e;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
             margin-top: 500px;
         }
         .box-lock {
@@ -102,4 +97,5 @@
 };
     </script>
 </body>
+
 </html>
